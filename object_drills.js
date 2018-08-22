@@ -34,11 +34,17 @@ const sampleObj = {
 };
 
 function keyDeleter(obj) {
-  return {};
+  delete obj.foo;
+  delete obj.bar;
+  return obj;
 }
 
 function makeStudentsReport(data) {
-  return [];
+  let hold =[];
+  for(let item of data){
+    hold.push(`${item['name']}: ${item['grade']}`)
+  };
+  return hold;
 }
 
 function enrollInSummerSchool(students) {
@@ -51,12 +57,12 @@ function enrollInSummerSchool(students) {
 
 
 
-// tests.testCreateMyObject(createMyObject);
-// tests.testUpdateObject(updateObject);
-// tests.testPersonMaker(personMaker);
-// tests.testKeyDeleter(keyDeleter);
-// tests.testIt(makeStudentsReport);
-// tests.testIt2(enrollInSummerSchool);
+tests.testCreateMyObject(createMyObject);
+tests.testUpdateObject(updateObject);
+tests.testPersonMaker(personMaker);
+tests.testKeyDeleter(keyDeleter);
+tests.testIt(makeStudentsReport);
+tests.testIt2(enrollInSummerSchool);
 
 
 
