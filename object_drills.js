@@ -38,7 +38,11 @@ function keyDeleter(obj) {
 }
 
 function makeStudentsReport(data) {
-  // your code here
+  return [];
+}
+
+function enrollInSummerSchool(students) {
+  return [];
 }
 
 
@@ -47,11 +51,12 @@ function makeStudentsReport(data) {
 
 
 
-tests.testCreateMyObject(createMyObject);
-tests.testUpdateObject(updateObject);
-tests.testPersonMaker(personMaker);
+// tests.testCreateMyObject(createMyObject);
+// tests.testUpdateObject(updateObject);
+// tests.testPersonMaker(personMaker);
 // tests.testKeyDeleter(keyDeleter);
 // tests.testIt(makeStudentsReport);
+// tests.testIt2(enrollInSummerSchool);
 
 
 
