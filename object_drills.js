@@ -10,16 +10,18 @@ const createMyObject = function () {
 };
 
 function updateObject(obj) {
-  return {};
+  obj.foo  = 'foo';
+  obj.bar = 'bar';
+  obj.bizz = 'bizz';
+  obj.bang = 'bang';
+  return obj;
 }
 
 function personMaker() {
   var person = {
     firstName: 'Paul',
     lastName: 'Jones',
-    // replace `null` with a function that uses self reference to return
-    // full name
-    fullName: null,
+    fullName: function () { return `${this.firstName} ${this.lastName}`;}
   };
   return person;
 }
@@ -46,8 +48,8 @@ function makeStudentsReport(data) {
 
 
 tests.testCreateMyObject(createMyObject);
-// tests.testUpdateObject(updateObject);
-// tests.testPersonMaker(personMaker);
+tests.testUpdateObject(updateObject);
+tests.testPersonMaker(personMaker);
 // tests.testKeyDeleter(keyDeleter);
 // tests.testIt(makeStudentsReport);
 
