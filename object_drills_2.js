@@ -74,3 +74,43 @@ function decodeWords(sentence){
 
 console.log(decodeWords(codedMessage));
 
+function createCharacter(name, nickname, race, origin, attack, defense){
+    return{
+    name,
+    nickname,
+    race, 
+    origin,
+    attack,
+    defense,
+    describe : function(){
+       console.log(`${this.name} is a ${this.race} from ${origin}`);
+    },
+    evaluateFight : function(obj){
+      const myDam = this.defense > obj.attack ? 0 : this.attack - obj.defense;
+      const oppDam =  obj.defense > this.attack ? 0 : this.attack- obj.defense;
+      return `Your opponent takes ${oppDam} damage and you receive ${myDam} damage`;
+    }
+    }
+}
+
+const characters = [createCharacter('Gandalf the White', 'gandalf','Wizard' ,'Middle Earth',10 ,6), 
+                createCharacter('Bilbo Baggins', 'bilbo','Hobbit' ,'The Shire' ,2 ,1), 
+                createCharacter('Frodo Baggins', 'frodo','Hobbit' ,'The Shire' ,3 ,2), 
+                createCharacter('Aragorn son of Arathorn' ,'aragorn' ,'Man' ,'Dunnedain' ,6 ,8), 
+                createCharacter('Legolas' ,'legolas' ,'Elf' ,'Woodland Realm' ,8 ,5)];
+
+characters.push(createCharacter('Arwen Undomiel', 'Arwen', 'Half-Elf', 'Rivendale', 10, 6));
+
+characters.find(function(item){
+    return item.nickname === 'aragorn';
+}).describe();
+
+let hobbits = characters.filter (item => item.race === 'Hobbit');
+
+let highAttack = characters.filter (item => item.attack > 5);
+
+console.log(highAttack);
+
+console.log(characters[0].evaluateFight(characters[1]));
+
+
