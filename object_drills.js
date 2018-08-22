@@ -48,25 +48,32 @@ function makeStudentsReport(data) {
 }
 
 function enrollInSummerSchool(students) {
-  return [];
+  students.forEach(student => student.status ='In Summer school' )
+  return students;
 }
 
 function findById(items, idNum) {
-  return {};
+  return items.find(item => item.id === idNum);
 }
 
+function validateKeys(object, expectedKeys) {
+  for (let key of expectedKeys){
+    if(!object.hasOwnProperty(key)){return false;}
+  }
+  for (const key in object){
+    if(!expectedKeys.includes(key)){return false;}
+  }
+  return true;
+}
 
-
-
-
-
-// tests.testCreateMyObject(createMyObject);
-// tests.testUpdateObject(updateObject);
-// tests.testPersonMaker(personMaker);
-// tests.testKeyDeleter(keyDeleter);
-// tests.testIt(makeStudentsReport);
-// tests.testIt2(enrollInSummerSchool);
+tests.testCreateMyObject(createMyObject);
+tests.testUpdateObject(updateObject);
+tests.testPersonMaker(personMaker);
+tests.testKeyDeleter(keyDeleter);
+tests.testIt(makeStudentsReport);
+tests.testIt2(enrollInSummerSchool);
 tests.testIt3(findById);
+tests.testIt4(validateKeys);
 
 
 

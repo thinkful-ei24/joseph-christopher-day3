@@ -265,6 +265,106 @@ module.exports.testIt3 = function(fnUnderTest) {
 }
 
 
+// running the function with `objectA` and `expectedKeys`
+// should return `true`
+const objectA = {
+  id: 2,
+  name: 'Jane Doe',
+  age: 34,
+  city: 'Chicago',
+};
+
+// running the function with `objectB` and `expectedKeys`
+// should return `false`
+const objectB = {
+  id: 3,
+  age: 33,
+  city: 'Peoria',
+};
+
+const expectedKeys = ['id', 'name', 'age', 'city'];
+
+module.exports.testIt4 = function(fnUnderTest) {
+  const objectA = {
+    id: 2,
+    name: 'Jane Doe',
+    age: 34,
+    city: 'Chicago',
+  };
+
+  const objectB = {
+    id: 3,
+    age: 33,
+    city: 'Peoria',
+  };
+
+  const objectC = {
+    id: 9,
+    name: 'Billy Bear',
+    age: 62,
+    city: 'Milwaukee',
+    status: 'paused',
+  };
+
+  const objectD = {
+    foo: 2,
+    bar: 'Jane Doe',
+    bizz: 34,
+    bang: 'Chicago',
+  };
+
+  const expectedKeys = ['id', 'name', 'age', 'city'];
+
+  if (typeof fnUnderTest(objectA, expectedKeys) !== 'boolean') {
+    console.error('FAILURE: validateKeys should return a boolean value');
+    return;
+  }
+
+  if (!fnUnderTest(objectA, expectedKeys)) {
+    console.error(
+      `FAILURE: running validateKeys with the following object and keys
+      should return true but returned false:
+      Object: ${JSON.stringify(objectA)}
+      Expected keys: ${expectedKeys}`
+    );
+    return;
+  }
+
+  if (fnUnderTest(objectB, expectedKeys)) {
+    console.error(
+      `FAILURE: running validateKeys with the following object and keys
+      should return false but returned true:
+      Object: ${JSON.stringify(objectB)}
+      Expected keys: ${expectedKeys}`
+    );
+    return;
+  }
+
+  if (fnUnderTest(objectC, expectedKeys)) {
+    console.error(
+      `FAILURE: running validateKeys with the following object and keys
+      should return false but returned true:
+      Object: ${JSON.stringify(objectC)}
+      Expected keys: ${expectedKeys}`
+    );
+    return;
+  }
+
+  if (fnUnderTest(objectD, expectedKeys)) {
+    console.error(
+      `FAILURE: running validateKeys with the following object and keys
+      should return false but returned true:
+      Object: ${JSON.stringify(objectD)}
+      Expected keys: ${expectedKeys}`
+    );
+    return;
+  }
+
+  console.log('SUCCESS: validateKeys is working');
+}
+
+
+
 
 
 
