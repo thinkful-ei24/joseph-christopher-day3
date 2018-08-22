@@ -34,12 +34,20 @@ const sampleObj = {
 };
 
 function keyDeleter(obj) {
-  return {};
+  delete obj.foo;
+  delete obj.bar;
+  return obj;
 }
 
 function makeStudentsReport(data) {
-  // your code here
+  let hold =[];
+  for(let item of data){
+    hold.push(`${item['name']}: ${item['grade']}`)
+    console.log(item);
+  };
+return hold;
 }
+
 
 
 
@@ -50,8 +58,8 @@ function makeStudentsReport(data) {
 tests.testCreateMyObject(createMyObject);
 tests.testUpdateObject(updateObject);
 tests.testPersonMaker(personMaker);
-// tests.testKeyDeleter(keyDeleter);
-// tests.testIt(makeStudentsReport);
+tests.testKeyDeleter(keyDeleter);
+tests.testIt(makeStudentsReport);
 
 
 
