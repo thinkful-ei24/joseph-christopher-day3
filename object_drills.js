@@ -51,18 +51,22 @@ function enrollInSummerSchool(students) {
   return [];
 }
 
+function findById(items, idNum) {
+  return {};
+}
 
 
 
 
 
 
-tests.testCreateMyObject(createMyObject);
-tests.testUpdateObject(updateObject);
-tests.testPersonMaker(personMaker);
-tests.testKeyDeleter(keyDeleter);
-tests.testIt(makeStudentsReport);
-tests.testIt2(enrollInSummerSchool);
+// tests.testCreateMyObject(createMyObject);
+// tests.testUpdateObject(updateObject);
+// tests.testPersonMaker(personMaker);
+// tests.testKeyDeleter(keyDeleter);
+// tests.testIt(makeStudentsReport);
+// tests.testIt2(enrollInSummerSchool);
+tests.testIt3(findById);
 
 
 
