@@ -1,7 +1,12 @@
 const tests = require('./object_drill_tests.js');
 
 const createMyObject = function () {
-  return {};
+  return {
+    foo: 'bar',
+    answerToUniverse: 42,
+    'olly olly': 'oxen free',
+    sayHello: () => 'hello'
+  };
 };
 
 function updateObject(obj) {
